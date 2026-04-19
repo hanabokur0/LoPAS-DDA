@@ -1,0 +1,101 @@
+# schema/decision_card.schema.json
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lopas.dev/schema/decision-card.schema.json",
+  "title": "LoPAS-DDA Decision Card",
+  "type": "object",
+  "required": [
+    "issue_id",
+    "issue_title",
+    "current_question",
+    "assessment",
+    "decision",
+    "timestamps",
+    "version"
+  ],
+  "properties": {
+    "issue_id": { "type": "string" },
+    "issue_title": { "type": "string" },
+    "current_question": { "type": "string" },
+    "assessment": {
+      "type": "object",
+      "required": ["doq","cci","bcdi","rii","hri","cocli"],
+      "properties": {
+        "doq": {"type":"number","minimum":0,"maximum":100},
+        "cci": {"type":"number","minimum":0,"maximum":100},
+        "bcdi": {"type":"number","minimum":0,"maximum":100},
+        "rii": {"type":"number","minimum":0,"maximum":100},
+        "hri": {"type":"number","minimum":0,"maximum":100},
+        "cocli": {"type":"number","minimum":0,"maximum":100},
+        "optional": {
+          "type":"object",
+          "properties": {
+            "rdi":{"type":"number"},
+            "trs":{"type":"number"},
+            "sci":{"type":"number"},
+            "cdi":{"type":"number"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "reject_conditions": {
+      "type":"array",
+      "items":{"type":"string"}
+    },
+    "withholding_conditions": {
+      "type":"array",
+      "items":{"type":"string"}
+    },
+    "decision": {
+      "type":"object",
+      "required":["verdict","confidence"],
+      "properties": {
+        "verdict": {
+          "type":"string",
+          "enum":[
+            "EXECUTE",
+            "PILOT",
+            "HOLD",
+            "REFRAME",
+            "REJECT",
+            "OBSERVE_MORE"
+          ]
+        },
+        "confidence": {
+          "type":"number",
+          "minimum":0,
+          "maximum":1
+        }
+      },
+      "additionalProperties": false
+    },
+    "timestamps": {
+      "type":"object",
+      "required":["created_at"],
+      "properties": {
+        "created_at":{"type":"string","format":"date-time"},
+        "review_at":{"type":"string","format":"date-time"}
+      },
+      "additionalProperties": false
+    },
+    "version": { "type":"string" }
+  },
+  "additionalProperties": false
+}
+```
+
+## Place in repo
+
+```text
+schema/decision_card.schema.json
+```
+
+## Next likely file
+
+```text
+examples/sample_request.json
+```
