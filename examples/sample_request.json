@@ -1,0 +1,48 @@
+{
+  "issue": {
+    "issue_id":"test-1",
+    "issue_title":"Medication queue overload",
+    "current_question":"Should demand distribution be piloted?"
+  },
+
+  "context": {
+
+    "time_horizon":"30d",
+
+    "constraints":[
+      "limited staffing"
+    ],
+
+    "affected_actors":[
+      "patients",
+      "clinic"
+    ],
+
+    "known_unknowns":[
+      "true demand variability"
+    ]
+
+  },
+
+  "assessment": {
+
+    "doq":74,
+    "cci":68,
+    "bcdi":71,
+    "rii":45,
+    "hri":66,
+    "cocli":72,
+
+    "optional": {
+
+      "rdi":64,
+      "trs":70,
+      "sci":20,
+      "cdi":61
+
+    }
+
+  },
+
+  "version":"0.3"
+}
