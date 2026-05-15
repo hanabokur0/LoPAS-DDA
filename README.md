@@ -5,7 +5,7 @@
 LoPAS-DDA is an experimental decision architecture centered not only on action and output, but on the structural conditions under which judgment should occur, be withheld, be reframed, or be rejected.
 
 Most systems optimize:
-
+　
 * faster answers
 * better answers
 * aligned answers
